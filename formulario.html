@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Meta -->
+        <meta charset="UTF-8" />
+        <title>Vue.JS Grid</title>
+
+        <!-- Styles -->
+        <!--<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">-->
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Scripts -->
+        <!--<script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <form id="app" @submit="checkForm" action="actions/actions.php" method="post" novalidate="true">
+                <input type="hidden" name="action" value="validar"/>
+                <p v-if="errors.length">
+                    <b>Por favor, corrija o(s) seguinte(s) erro(s):</b>
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+                </p>
+
+                <p>
+                    Dado um orçamento de 100 dólares, indique
+                    quanto você gastaria nos seguintes recursos
+                    para uma próxima geração da Estrela da Morte. 
+                    O valor total deve ser 100.
+                </p>
+
+                <p>
+                    <input v-model.number="weapons" type="number" name="weapons" > Armas <br/>
+                    <input v-model.number="shields" type="number" name="shields" > Escudos <br/>
+                    <input v-model.number="coffee" type="number" name="coffee" > Café <br/>
+                    <input v-model.number="ac" type="number" name="ac" > Ar condicionado <br/>
+                    <input v-model.number="mousedroids" type="number" name="mousedroids" > Droides rato <br/>
+                </p>
+
+                <p>
+                    Total atual: {{total}}
+                </p>
+
+                <p>
+                    <input type="submit" value="Enviar" >
+                </p>
+            </form>
+        </div>
+        <div class="container">
+            
+            <form id="app" @submit="checkForm" action="actions/actions.php" method="post">
+                <input name="action" type="hidden" value="salvar">
+                <p v-if="errors.length">
+                    <b>Por favor, corrija o(s) seguinte(s) erro(s):</b>
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+                </p>
+
+                <p>
+                    <label for="name">Nome</label>
+                    <input id="name" v-model="name" type="text" name="name"  >
+                </p>
+
+                <p>
+                    <label for="age">Idade</label>
+                    <input id="age" v-model="age" type="number" name="age" min="0"  >
+                </p>
+
+                <p>
+                    <label for="movie">Filme favorito</label>
+                    <select id="movie" v-model="movie" name="movie"> <option>Star Wars</option>
+                        <option>Vanilla Sky</option> <option>Atomic Blonde</option>
+                    </select>
+                </p>
+
+                <p>
+                    <input type="submit" value="Enviar"  >
+                </p>
+            </form>
+        </div>
+          <script src="js/validar.js"></script>
+          <script src="js/logar.js"></script>
+
+    </body>
+</html>
