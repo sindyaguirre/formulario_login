@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <title>Vue.JS Grid</title>
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  
+  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Scripts -->
+  <!--<script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  
+</head>
+<body>
+  
+  <script type="text/x-template" id="page-head">
+    <header>
+      <h1>Vue.JS Grid Template</h1>
+    </header>
+  </script>
+  
+  <script type="text/x-template" id="grid">
+  	<div class="grid">
+    	<transition-group name="pop">
+			  <div class="color" v-for="(color, index) in colors" v-bind:key="{index}" v-bind:style="{ backgroundColor: color.hex }"></div>
+      </transition-group>
+    </div>
+  </script>
+  
+  <div id="demo">
+    <page-head></page-head>
+    <grid :colors="colors"></grid>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="js/components.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

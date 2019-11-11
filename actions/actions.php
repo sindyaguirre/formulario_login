@@ -15,7 +15,7 @@ switch ($_POST['action']) {
         var_dump($_POST);
         echo '</p>';
         echo '<p>';
-        var_dump($objForm->validar($_POST));
+        var_dump($objForm->validar_formulario_um($_POST));
         echo '</p>';
         die('fim debug');
 
